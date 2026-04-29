@@ -1,0 +1,42 @@
+# Site oficial da banda Thork — bandathork.com.br
+# Acesso liberado para todos os bots e crawlers
+
+User-agent: *
+Allow: /
+
+# Crawlers de redes sociais (preview de links) — explicitamente liberados
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: facebookexternalhit/1.1
+Allow: /
+
+User-agent: Facebot
+Allow: /
+
+User-agent: WhatsApp
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: TelegramBot
+Allow: /
+
+User-agent: Slackbot
+Allow: /
+
+User-agent: Discordbot
+Allow: /
+
+# Crawlers de busca
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+Sitemap: https://bandathork.com.br/sitemap.xml
