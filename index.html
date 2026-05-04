@@ -32,8 +32,14 @@
 <meta name="twitter:description" content="Covers dos clássicos do heavy metal e hard rock. Site oficial da banda Thork.">
 <meta name="twitter:image" content="https://bandathork.com.br/og-image.jpg">
 
-<link rel="icon" type="image/png" href="./ThorkPNG.png">
-<link rel="apple-touch-icon" href="./ThorkPNG.png">
+<!-- Favicons (logo da banda em formato quadrado, otimizada pro Google e navegadores) -->
+<link rel="icon" type="image/x-icon" href="./favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="./favicon-16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="./favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="./favicon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="./favicon-512.png">
+<link rel="apple-touch-icon" sizes="192x192" href="./favicon-192.png">
+<link rel="apple-touch-icon" sizes="512x512" href="./favicon-512.png">
 <link rel="canonical" href="https://bandathork.com.br/">
 
 <!-- Dados estruturados Schema.org (ajuda o Google a entender que é uma banda) -->
@@ -45,7 +51,7 @@
   "alternateName": "Banda Thork",
   "description": "Thork é uma banda brasileira de heavy metal e hard rock dedicada aos covers dos clássicos do gênero — Black Sabbath, Iron Maiden, Megadeth, Ozzy Osbourne, Dio, Deep Purple, Metallica, Judas Priest e Scorpions.",
   "url": "https://bandathork.com.br/",
-  "logo": "https://bandathork.com.br/ThorkPNG.png",
+  "logo": "https://bandathork.com.br/favicon-512.png",
   "image": "https://bandathork.com.br/og-image.jpg",
   "genre": ["Heavy Metal", "Hard Rock", "Rock Cover"],
   "foundingLocation": {
@@ -60,33 +66,28 @@
   "sameAs": [
     "https://www.instagram.com/bandathork",
     "https://open.spotify.com/playlist/27poViMY7idroc4wuUw0EZ"
-  ]
-}
-</script>
-<link rel="canonical" href="https://bandathork.com.br/">
-
-<!-- Dados estruturados para o Google reconhecer como banda de música -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "MusicGroup",
-  "name": "Thork",
-  "alternateName": "Banda Thork",
-  "url": "https://bandathork.com.br/",
-  "logo": "https://bandathork.com.br/ThorkPNG.png",
-  "image": "https://bandathork.com.br/og-image.jpg",
-  "description": "Banda brasileira de heavy metal e hard rock dedicada aos clássicos de Black Sabbath, Iron Maiden, Megadeth, Ozzy Osbourne, Dio, Deep Purple, Metallica, Judas Priest e Scorpions.",
-  "genre": ["Heavy Metal", "Hard Rock", "Cover Band"],
-  "foundingLocation": {
-    "@type": "Place",
-    "address": {
-      "@type": "PostalAddress",
-      "addressCountry": "BR"
+  ],
+  "member": [
+    {
+      "@type": "Person",
+      "name": "André Ortegal",
+      "roleName": "Vocal"
+    },
+    {
+      "@type": "Person",
+      "name": "Marcos Costa",
+      "roleName": "Bateria"
+    },
+    {
+      "@type": "Person",
+      "name": "Laércio Rehem",
+      "roleName": "Baixo"
+    },
+    {
+      "@type": "Person",
+      "name": "Lucas Guimarães",
+      "roleName": "Guitarra"
     }
-  },
-  "sameAs": [
-    "https://www.instagram.com/bandathork",
-    "https://open.spotify.com/playlist/27poViMY7idroc4wuUw0EZ"
   ]
 }
 </script>
@@ -357,7 +358,122 @@ section{position:relative;padding:clamp(80px,12vh,140px) var(--pad)}
   text-transform:uppercase;color:var(--muted);margin-top:8px;
 }
 
-/* ====== SETLIST ====== */
+/* ====== QUEM É A THORK (integrantes) ====== */
+.lineup{
+  background:#060606;
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  position:relative;
+  overflow:hidden;
+}
+/* "THORK" gigante em outline ao fundo, decorativo */
+.lineup::before{
+  content:"THORK";
+  position:absolute;
+  left:-2vw;top:50%;
+  transform:translateY(-50%);
+  font-family:var(--f-display);font-weight:900;
+  font-size:clamp(180px,32vw,460px);
+  color:transparent;
+  -webkit-text-stroke:1px rgba(255,255,255,.035);
+  line-height:.8;letter-spacing:-.04em;
+  pointer-events:none;
+  white-space:nowrap;
+}
+.lineup__grid{
+  display:grid;
+  grid-template-columns:.95fr 1.05fr;
+  gap:64px;
+  align-items:center;
+  position:relative;
+  z-index:1;
+}
+@media (max-width:860px){
+  .lineup__grid{grid-template-columns:1fr;gap:38px}
+}
+.lineup__photo{
+  position:relative;
+  aspect-ratio:3/4;
+  overflow:hidden;
+  border:1px solid var(--line-strong);
+  background:#000;
+}
+.lineup__photo img{
+  width:100%;height:100%;object-fit:cover;
+  filter:saturate(.95) contrast(1.05);
+  transition:transform .8s cubic-bezier(.22,1,.36,1);
+}
+.lineup__photo:hover img{transform:scale(1.03)}
+.lineup__photo::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,transparent 60%,rgba(0,0,0,.45) 100%);
+  pointer-events:none;
+}
+.lineup__photo-cap{
+  position:absolute;bottom:14px;left:16px;right:16px;
+  font-family:var(--f-mono);font-size:10px;letter-spacing:.25em;
+  text-transform:uppercase;color:var(--steel);z-index:2;
+}
+.lineup__photo-cap span{color:var(--blood)}
+/* moldura nos cantos */
+.lineup__photo-corners::before,.lineup__photo-corners::after,
+.lineup__photo-corners > i::before,.lineup__photo-corners > i::after{
+  content:"";position:absolute;width:14px;height:14px;
+  border:1px solid var(--blood);z-index:3;
+}
+.lineup__photo-corners::before{top:-1px;left:-1px;border-right:0;border-bottom:0}
+.lineup__photo-corners::after{top:-1px;right:-1px;border-left:0;border-bottom:0}
+.lineup__photo-corners > i::before{bottom:-1px;left:-1px;border-right:0;border-top:0}
+.lineup__photo-corners > i::after{bottom:-1px;right:-1px;border-left:0;border-top:0}
+
+.lineup__copy h2{margin-bottom:24px}
+.lineup__intro{
+  color:#cfcfcf;font-size:clamp(15px,1.15vw,17px);
+  font-weight:300;margin-bottom:28px;max-width:52ch;
+}
+.lineup__intro strong{color:var(--ink);font-weight:600}
+
+.members{
+  list-style:none;padding:0;margin:0;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:0;
+  border-top:1px solid var(--line);
+}
+@media (max-width:520px){.members{grid-template-columns:1fr}}
+.members li{
+  padding:18px 0;
+  border-bottom:1px solid var(--line);
+  border-right:1px solid var(--line);
+  padding-right:18px;
+  position:relative;
+  transition:padding .3s, background .3s;
+}
+.members li:nth-child(2n){border-right:0;padding-left:18px;padding-right:0}
+@media (max-width:520px){
+  .members li{border-right:0;padding-left:0 !important;padding-right:0 !important}
+}
+.members li::before{
+  content:"";position:absolute;left:0;top:0;bottom:0;width:0;
+  background:var(--blood);transition:width .35s cubic-bezier(.22,1,.36,1);
+}
+.members li:hover{padding-left:14px}
+.members li:nth-child(2n):hover{padding-left:32px}
+@media (max-width:520px){
+  .members li:hover,.members li:nth-child(2n):hover{padding-left:14px}
+}
+.members li:hover::before{width:3px}
+.members__role{
+  font-family:var(--f-mono);font-size:10px;letter-spacing:.3em;
+  text-transform:uppercase;color:var(--blood);margin-bottom:6px;
+}
+.members__name{
+  font-family:var(--f-head);font-weight:600;
+  font-size:clamp(17px,1.4vw,20px);
+  letter-spacing:.04em;color:var(--ink);
+}
+
+
 .setlist{background:#070707;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .setlist__head{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;flex-wrap:wrap;margin-bottom:48px}
 .setlist__head p{color:var(--steel-dim);max-width:40ch;font-size:15px}
@@ -527,6 +643,7 @@ footer .mini-logo{
   </a>
   <div class="nav__links">
     <a href="#sobre">Banda</a>
+    <a href="#integrantes">Integrantes</a>
     <a href="#setlist">Setlist</a>
     <a href="#galeria">Galeria</a>
     <a href="#contato">Contato</a>
@@ -539,6 +656,7 @@ footer .mini-logo{
 
 <div class="mmenu" id="mmenu" aria-hidden="true">
   <a href="#sobre" data-close>Banda</a>
+  <a href="#integrantes" data-close>Integrantes</a>
   <a href="#setlist" data-close>Setlist</a>
   <a href="#galeria" data-close>Galeria</a>
   <a href="#contato" data-close>Contato</a>
@@ -593,7 +711,7 @@ footer .mini-logo{
         <h2 class="h-display">Som <em>cru</em>.<br><span class="blood">Atitude</span><br>de palco.</h2>
       </div>
       <div class="sobre__copy reveal reveal-d1">
-        <p>A <strong>THORK</strong> é uma banda dedicada aos riffs que moldaram o heavy metal e o hard rock — e ao desejo simples e ruidoso de tocá-los como eles foram feitos para ser tocados: <strong>alto, sem concessões e ao vivo</strong>.</p>
+        <p>A <strong>THORK</strong> é uma banda dedicada aos riffs que moldaram o heavy metal e o hard rock — e ao desejo simples e ruidoso de tocá-los como eles foram feitos para ser tocados: <strong>alto, sujo, sem concessões e ao vivo</strong>.</p>
         <p>Do peso de Black Sabbath à velocidade de Megadeth, das melodias de Iron Maiden ao groove de Deep Purple, passando por Ozzy, Dio, Judas Priest, Metallica e Scorpions — nosso repertório atravessa cinco décadas dos clássicos que <strong>nenhum show de rock raiz pode ignorar</strong>.</p>
         <div class="sobre__stats">
           <div>
@@ -609,6 +727,44 @@ footer .mini-logo{
             <div class="lbl">Ao vivo</div>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =================== QUEM É A THORK =================== -->
+<section class="lineup" id="integrantes">
+  <div class="wrap">
+    <div class="lineup__grid">
+      <div class="lineup__photo lineup__photo-corners reveal">
+        <i></i>
+        <img src="./img/banda-thork.jpg" alt="Os integrantes da Thork — André Ortegal, Marcos Costa, Laércio Rehem e Lucas Guimarães — no palco do Black Sheep" loading="lazy">
+        <div class="lineup__photo-cap">Black Sheep · <span>2025</span></div>
+      </div>
+
+      <div class="lineup__copy reveal reveal-d1">
+        <p class="eyebrow">Os integrantes</p>
+        <h2 class="h-display">Quem é <em>a</em><br><span class="blood">Thork</span></h2>
+        <p class="lineup__intro">Quatro músicos, uma obsessão em comum: <strong>tocar os clássicos do metal e do hard rock como eles foram feitos pra ser tocados</strong>. Conheça quem está no palco quando a Thork sobe.</p>
+
+        <ul class="members">
+          <li>
+            <div class="members__role">Vocal</div>
+            <div class="members__name">André Ortegal</div>
+          </li>
+          <li>
+            <div class="members__role">Bateria</div>
+            <div class="members__name">Marcos Costa</div>
+          </li>
+          <li>
+            <div class="members__role">Baixo</div>
+            <div class="members__name">Laércio Rehem</div>
+          </li>
+          <li>
+            <div class="members__role">Guitarra</div>
+            <div class="members__name">Lucas Guimarães</div>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
