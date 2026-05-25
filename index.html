@@ -58,7 +58,7 @@
   "@type": "MusicGroup",
   "name": "Thork",
   "alternateName": "Banda Thork",
-  "description": "Thork é uma banda brasileira de heavy metal e hard rock dedicada aos covers dos clássicos do gênero — Black Sabbath, Iron Maiden, Megadeth, Ozzy Osbourne, Dio, Deep Purple, Metallica, Judas Priest e Scorpions.",
+  "description": "Thork é uma banda brasileira de heavy metal e hard rock dedicada aos covers dos clássicos do gênero — Black Sabbath, Iron Maiden, Megadeth, Ozzy Osbourne, Dio, Deep Purple, Metallica, Judas Priest, Scorpions e Angra.",
   "url": "https://bandathork.com.br/",
   "logo": "https://bandathork.com.br/favicon-512.png",
   "image": "https://bandathork.com.br/og-image.jpg",
@@ -523,6 +523,33 @@ section{position:relative;padding:clamp(80px,12vh,140px) var(--pad)}
 }
 .setlist__cta{margin-top:48px;display:flex;gap:14px;flex-wrap:wrap}
 
+/* ====== PLAYER SPOTIFY EMBUTIDO ====== */
+.spotify-embed{
+  margin-top:48px;
+  border:1px solid var(--line-strong);
+  position:relative;
+  background:#0d0d0d;
+}
+.spotify-embed__label{
+  display:flex;align-items:center;gap:10px;
+  padding:14px 18px;
+  border-bottom:1px solid var(--line);
+  font-family:var(--f-mono);font-size:11px;
+  letter-spacing:.25em;text-transform:uppercase;color:var(--steel-dim);
+}
+.spotify-embed__label svg{width:16px;height:16px;color:#1db954;flex-shrink:0}
+.spotify-embed iframe{
+  display:block;width:100%;border:0;
+  border-radius:0;
+}
+/* moldura nos cantos, igual o resto do site */
+.spotify-embed::before,.spotify-embed::after{
+  content:"";position:absolute;width:14px;height:14px;
+  border:1px solid var(--blood);pointer-events:none;z-index:2;
+}
+.spotify-embed::before{top:-1px;left:-1px;border-right:0;border-bottom:0}
+.spotify-embed::after{bottom:-1px;right:-1px;border-left:0;border-top:0}
+
 /* ====== GALERIA ====== */
 .gallery{background:var(--bg)}
 .gallery__head{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;flex-wrap:wrap;margin-bottom:48px}
@@ -699,6 +726,7 @@ footer .mini-logo{
     <div class="ticker__item">Metallica</div>
     <div class="ticker__item">Judas Priest</div>
     <div class="ticker__item">Scorpions</div>
+    <div class="ticker__item">Angra</div>
     <div class="ticker__item">Black Sabbath</div>
     <div class="ticker__item">Iron Maiden</div>
     <div class="ticker__item">Megadeth</div>
@@ -708,6 +736,7 @@ footer .mini-logo{
     <div class="ticker__item">Metallica</div>
     <div class="ticker__item">Judas Priest</div>
     <div class="ticker__item">Scorpions</div>
+    <div class="ticker__item">Angra</div>
   </div>
 </div>
 
@@ -721,10 +750,10 @@ footer .mini-logo{
       </div>
       <div class="sobre__copy reveal reveal-d1">
         <p>A <strong>THORK</strong> é uma banda dedicada aos riffs que moldaram o heavy metal e o hard rock — e ao desejo simples e ruidoso de tocá-los como eles foram feitos para ser tocados: <strong>alto, sem concessões e ao vivo</strong>.</p>
-        <p>Do peso de Black Sabbath à velocidade de Megadeth, das melodias de Iron Maiden ao groove de Deep Purple, passando por Ozzy, Dio, Judas Priest, Metallica e Scorpions — nosso repertório atravessa cinco décadas dos clássicos que <strong>nenhum show de rock raiz pode ignorar</strong>.</p>
+        <p>Do peso de Black Sabbath à velocidade de Megadeth, das melodias de Iron Maiden ao groove de Deep Purple, passando por Ozzy, Dio, Judas Priest, Metallica, Scorpions e o power metal nacional do Angra — nosso repertório atravessa cinco décadas dos clássicos que <strong>nenhum show de rock raiz pode ignorar</strong>.</p>
         <div class="sobre__stats">
           <div>
-            <div class="num">29+</div>
+            <div class="num">26</div>
             <div class="lbl">Clássicos no repertório</div>
           </div>
           <div>
@@ -791,6 +820,20 @@ footer .mini-logo{
     </div>
 
     <div class="setlist__list reveal" id="setlistList"></div>
+
+    <div class="spotify-embed reveal">
+      <div class="spotify-embed__label">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0a12 12 0 100 24 12 12 0 000-24zm5.5 17.3a.75.75 0 01-1 .25c-2.8-1.7-6.4-2.1-10.6-1.1a.75.75 0 11-.4-1.4c4.6-1.1 8.5-.7 11.7 1.2.4.3.5.7.3 1zm1.5-3.4a.94.94 0 01-1.3.3c-3.2-2-8.1-2.5-11.9-1.4a.94.94 0 11-.5-1.8c4.3-1.3 9.7-.7 13.4 1.6.4.3.5.9.3 1.3zm.1-3.5C15.4 8 8.7 7.7 5 8.8a1.13 1.13 0 11-.6-2.2C8.6 5.3 16 5.6 20.4 8.3a1.13 1.13 0 01-1.3 1.9z"/></svg>
+        Ouça o repertório completo
+      </div>
+      <iframe
+        src="https://open.spotify.com/embed/playlist/27poViMY7idroc4wuUw0EZ?utm_source=generator&theme=0"
+        width="100%" height="420"
+        frameborder="0" allowfullscreen=""
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        loading="lazy"
+        title="Setlist da Thork no Spotify"></iframe>
+    </div>
 
     <div class="setlist__cta reveal">
       <a class="btn btn--primary" href="https://open.spotify.com/playlist/27poViMY7idroc4wuUw0EZ?si=jopDzq8ZSVGzx-0HTYvKoQ" target="_blank" rel="noopener">
@@ -910,21 +953,22 @@ const SETLIST = [
   {t:"Sabbath Bloody Sabbath", a:"Black Sabbath"},
   {t:"Children of the Grave", a:"Black Sabbath"},
   {t:"Holy Diver", a:"Dio"},
-  {t:"Mr. Crowley", a:"Ozzy Osbourne"},
-  {t:"Perry Mason", a:"Ozzy Osbourne"},
   {t:"Stormbringer", a:"Deep Purple"},
   {t:"Heaven and Hell", a:"Black Sabbath"},
+  {t:"Mr. Crowley", a:"Ozzy Osbourne"},
   {t:"Perfect Strangers", a:"Deep Purple"},
   {t:"Bark at the Moon", a:"Ozzy Osbourne"},
   {t:"War Pigs", a:"Black Sabbath"},
   {t:"N.I.B.", a:"Black Sabbath"},
-  {t:"Highway Star", a:"Deep Purple"},
   {t:"Smoke On The Water", a:"Deep Purple"},
   {t:"Enter Sandman", a:"Metallica"},
-  {t:"Master of Puppets", a:"Metallica"},
   {t:"Fear of the Dark", a:"Iron Maiden"},
+  {t:"Rock You Like A Hurricane", a:"Scorpions"},
   {t:"Rainbow in the Dark", a:"Dio"},
-  {t:"Rock You Like A Hurricane", a:"Scorpions"}
+  {t:"Rebirth", a:"Angra"},
+  {t:"Wasted Years", a:"Iron Maiden"},
+  {t:"2 Minutes To Midnight", a:"Iron Maiden"},
+  {t:"Hallowed Be Thy Name", a:"Iron Maiden"}
 ];
 
 const list = document.getElementById('setlistList');
